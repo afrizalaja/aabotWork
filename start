@@ -123,7 +123,7 @@ async function starts() {
 				} catch {
 					ppimg = 'https://i.ibb.co/JcSjmNY/IMG-20210107-WA0052.jpg'
 				}
-				teks = `[ NEW MEMBER IN GROUP _*${mdata.subject}*_ ] \n*_____________*\n@${num.split('@')[0]}\nɪɴᴛʀᴏ/ᴅɪᴋɪᴄᴋ! \nNama: \nUmur: \nAskot:\nBaca Deks ajg \n *_____________*\nMoga betah Di group!`
+				teks = `[ NEW MEMBER IN GROUP _*${mdata.subject}*_ ] \n*_____________*\n@${num.split('@')[0]}\nɪɴᴛʀᴏatauᴅɪᴋɪᴄᴋ! \nNama: \nUmur: \nAskot:\nSave wa ijal \n *_____________*\nMoga betah Di group!`
 				let buff = await getBuffer(ppimg)
 				client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 			} else if (anu.action == 'remove') {
@@ -171,7 +171,7 @@ async function starts() {
 
 			mess = {
 				wait: '⌛ Sedang di Prosess ⌛',
-				asik: 'sabar bang orang sabar disayang janda',
+				asik: 'Sabar ya lagi diproses sama ijal hehe',
 				success: '✔️ Berhasil ✔️',
 				error: {
 					stick: ' Gagal, terjadi kesalahan saat mengkonversi gambar ke sticker ',
@@ -180,7 +180,7 @@ async function starts() {
 				only: {
 					group: ' Perintah ini hanya bisa di gunakan dalam group! ',
 					public: ' Fitur Dalam Private Harap Menunggu Owner Mempublikasikan! ',
-					premium: ' Perintah ini hanya bisa di gunakan ketika anda menjadi premium, jika ingin menjadi premium ketik */daftarvip!* ',
+					premium: ' Perintah ini hanya bisa di gunakan ketika anda menjadi premium, jika ingin menjadi premium ketik */daftarvip!* sekarang udah gak lag tapi ya ga semuanya sih aku cape',
 					ownerG: ' Perintah ini hanya bisa di gunakan oleh owner group! ',
 					ownerB: ' Perintah ini hanya bisa di gunakan oleh owner bot! ',
 					admin: ' Perintah ini hanya bisa di gunakan oleh admin group! ',
@@ -320,13 +320,13 @@ async function starts() {
 					break
 					case 'addfoto':
 					if (!isGroup) return reply(mess.only.group)
-					if (!isOwner) return reply('khusus owner tolol')
+					if (!isPublic) return reply('khusus owner tolol')
 					client.sendMessage(from, addfoto(), text, { quoted: mek })
 					break
 					case 'addsay':
 					if (!isGroup) return reply(mess.only.group)
-					if (!isOwner) return reply('khusus owner tolol')
-					if (args.length < 1) return reply('Teksnya mana kak')
+					if (!isPublic) return reply('Apa disini gak ada apa apa')
+					if (args.length < 1) return reply('Teksnya dulu anjing')
 					reply(mess.wait)
 					client.sendMessage(from, 'Berhasil Menambahkan ke List Message' , text, { quoted: mek })
 					client.sendMessage(from, addsay(), text, { quoted: mek })
@@ -347,13 +347,13 @@ async function starts() {
 					break
 					case 'listsay':
 					if (!isGroup) return reply(mess.only.group)
-					if (!isOwner) return reply('khusus owner tolol')
+					if (!isPublic) return reply('apa? aku izal si owner :). sebenernya aku cuma edit isinya aja sih :v')
 					client.sendMessage(from, listsay(), text, { quoted: mek })
 					break
 					case 'brangay':
 					case 'agunggay':
 					case 'fajargay':
-					client.sendMessage(from, 'iya emang gay dia kak parah banget pokoknya' , text, { quoted: mek })
+					client.sendMessage(from, 'iya emang gay dia kak parah banget pokoknya, Jauhi dia' , text, { quoted: mek })
 					break
 					case 'orang':
 					client.sendMessage(from, 'siapaa?' , text, { quoted: mek })
@@ -381,8 +381,8 @@ async function starts() {
 					client.sendMessage(from, nekopoi() , text, { quoted: mek })
 					break
 					case 'cekvip':
-					if (!isPremium) return reply('Anda bukan Member Premium, silakan hubungi owner atau ketik */daftarvip* untuk membeli akses Premium!' ,text, { quoted: mek })
-					tod = await getBuffer(`https://i.ibb.co/XVPbWdJ/IMG-20210105-WA2478.jpg`)
+					if (!isPublic) return reply('ini barusanku ganti tadinya premium y
+					
 					client.sendMessage(from, tod, image, { quoted: mek, caption: '*──────────────────*\n*Nama bot* : Rizky Bot\n*─────────────────*\n『 *𝐕𝐈𝐏 𝐔𝐒𝐄𝐑*』\n*──────────────────*\n• *Status*    : *ACTIVE*\n*──────────────────*\n*Status Bot:* *Online*\n*──────────────────*' })
 					break
 					case 'gambar':
@@ -393,24 +393,24 @@ async function starts() {
 					client.sendMessage(from, tod, image, { quoted: mek, caption: 'tes'+pepw })
 					break
 					case 'addvip':
-					if (!isPremium) return reply('Anda bukan Member Premium, silakan hubungi owner atau ketik */daftarvip* untuk membeli akses Premium!' ,text, { quoted: mek })
+					if (!isPublic) return reply('Anda bukan Member Premium, silakan hubungi owner atau ketik */daftarvip* untuk membeli akses Premium!' ,text, { quoted: mek })
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag target yang ingin di tendang!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
-						teks = '╭────「 *PREMIUM👑* 」──*\n│+ *Number* : \n│+ *Expired*: *30 Days*\n│+ *Status*: *ACTIVE*\n│ Thx for Upgrade to Premium🥰\n*╰──────「 *Rizky* 」────'
+						teks = '╭────「 *PREMIUM👑* 」──*\n│+ *Number* : \n│+ *Expired*: *30 Days*\n│+ *Status*: *ACTIVE*\n│ Thx for Upgrade to Premium🥰\n*╰──────「 *izal* 」────'
 						for (let _ of mentioned) {
 							teks += `@${_.split('@')[0]}\n`
 						}
 						mentions(teks, mentioned, true)
 						client.sendMessage(from, mentioned)
 					} else {
-						mentions(`╭────「 *PREMIUM👑* 」──*\n│+ *Number* : @${mentioned[0].split('@')[0]}\n│+ *Expired*: *30 Days*\n│+ *Status*: *ACTIVE*\n│ Thx for Upgrade to Premium🥰\n*╰──────「 *Rizky* 」────`, mentioned, true)
+						mentions(`╭────「 *PREMIUM👑* 」──*\n│+ *Number* : @${mentioned[0].split('@')[0]}\n│+ *Expired*: *30 Days*\n│+ *Status*: *ACTIVE*\n│ Thx for Upgrade to Premium🥰\n*╰──────「 *Izal* 」────`, mentioned, true)
 					client.sendMessage(from, mentioned)
 				    }
 					break
 					case 'dellvip':
-					if (!isPremium) return reply('Anda bukan Member Premium, silakan hubungi owner atau ketik */daftarvip* untuk membeli akses Premium!' ,text, { quoted: mek })
+					if (!isPublic) return reply('Anda bukan Member Premium, silakan hubungi owner atau ketik */daftarvip* untuk membeli akses Premium!' ,text, { quoted: mek })
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag target yang ingin di tendang!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
@@ -426,7 +426,7 @@ async function starts() {
 					client.sendMessage(from, mentioned)
 				    }
 					break
-					case 'rizkyadmin':
+					case 'izaladmin':
 					tod = await getBuffer(`https://i.ibb.co/CbZg6G5/IMG-20210106-WA0040.jpg`)
 					client.sendMessage(from, tod, image, { quoted: mek, caption: '*╭────*「 *ADMINBOT RIZKY ✨* 」\n*│+wa.me/6285364937006*\n*│+wa.me/6282255123081*\n*╰──────*「 *Rizky* 」*────*\n\n*_JIKA INGIN MENJADI ADMIN RIZKY BOT_*\n*_Ketik /iklan_*' })
 					break
@@ -638,7 +638,7 @@ async function starts() {
 				if (!isPublic) return reply(mess.only.public)
 					me = client.user
 					uptime = process.uptime()
-					teks = `*Nama bot* : ${me.name}\n*Anuther* : *Rizky*\n*FRENDS* : Agung GAY\n*Nomor Bot* : @${me.jid.split('@')[0]}\n*Prefix* : ${prefix}\n*Total Block Contact* : ${blocked.length}\n*The bot is active on* : ${kyun(uptime)}\n*Public:* ON`
+					teks = `*Nama bot* : ${me.name}\n*Anuther* : *izalrizalafrizal**Nomor Bot* : @${me.jid.split('@')[0]}\n*Prefix* : ${prefix}\n*Total Block Contact* : ${blocked.length}\n*The bot is active on* : ${kyun(uptime)}\n*Public:* ON`
 					buffer = await getBuffer(me.imgUrl)
 					client.sendMessage(from, buffer, image, {caption: teks, contextInfo:{mentionedJid: [me.jid]}})
 					break
@@ -791,7 +791,7 @@ async function starts() {
                         hehex += '╠➥ '
                         hehex += response.data.data[i].name.transliteration.id.toLowerCase() + '\n'
                             }
-                        hehex += '╚═〘 *R I Z K Y B O T* 〙'
+                        hehex += '╚═〘 *Izal Bot* 〙'
                     reply(from, hehex, text)
                 })
             } catch(err) {
