@@ -73,11 +73,11 @@ you've just cloned!!
 |       ✅        |   Clear All Chats                |
 
 ## Special Thanks to
-* [`adiwajshing/Baileys`](https://github.com/adiwajshing/Baileys)
-* [`Mhankbarbar`](https://github.com/MhankBarBar)
+* [`Izal`](https://github.com/adiwajshing/Baileys)
+* [`Aak`](https://github.com/MhankBarBar)
 
 
 ## Group
 * [`WhatsApp`](Error waiting)
-### Donate
-* [`Saweria`](https://saweria.co/donate/agung1)
+
+
